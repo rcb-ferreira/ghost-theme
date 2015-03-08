@@ -1,0 +1,38 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
+<article class="{{post_class}} post-container">
+  {{> blog-date}}
+  <header class="post-header">
+    <h1 itemprop="name headline"><a href="{{url}}">{{{title}}}</a></h1>
+  </header>
+
+  <p>{{tags prefix="Tagged with: "}}</p>
+
+  {{#if image}}
+    <img class="img-thumbnail" src="{{image}}" />
+  {{/if}}
+
+  <div itemprop="articleBody text">
+    {{content}}
+  </div>
+
+  <footer class="post-footer">
+    <div class="post-footer row">
+      <div itemprop="author" itemscope itemtype="http://schema.org/Person" class="author col-sm-12">
+          <span rel="author" itemprop="url name">Posted by {{author}}</span>
+      </div>
+    </div>
+
+    <hr>
+    {{> disqus }}
+
+  </footer>
+
+</article>
+
+{{/post}}
