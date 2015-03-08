@@ -1,1 +1,6 @@
+node_modules/
+assets/bower_components
+assets/images_to_compress
+assets/css/compiled_sass.css
 .sass-cache
+.DS_Store
